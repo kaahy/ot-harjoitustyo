@@ -1,34 +1,9 @@
-# Otsikko
+# Ohjelmistotekniikka, harjoitustyö
 
-Tässä on tavallista tekstiä, jossa on **lihavointia** ja *kursivointia*.
+## Tehtävät
 
-Alla lisää markdown-notaation testailua.
+### Viikko 1
 
-## Alaotsikko
+[gitlog.txt](https://github.com/kaahy/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt)
 
-~~strikethrough~~
-
-__alleviivaus__
-
-***lihavoitu ja kursivoitu***
-
-<sub>substrict</sub>
-
-<sup>superscript</sup>
-
-> quote
-
-`code`
-
-```
-code
-code
-code
-```
-
-`#ff0000`
-
-`rgb(255, 0, 0)`
-
-`hsl(0, 100%, 50%)`
-
+[komentorivi.txt](https://github.com/kaahy/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
