@@ -1,0 +1,114 @@
+commit 34d9f2d592a0c4bbfafb4c8964af9c4485c80921
+Author: kaa <113045348+kaahy@users.noreply.github.com>
+Date:   Thu Mar 16 17:32:09 2023 +0200
+
+    file2 poistettu ja uudelleennimetty file2 -> file22
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit c114283e1762817b7a10d39732e6da0f3bc4c5e6
+Author: kaa <113045348+kaahy@users.noreply.github.com>
+Date:   Thu Mar 16 17:28:05 2023 +0200
+
+    muutettu tiedostoa file3
+
+ tiedostoja/file3 | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+commit 36214a70e9b35a5c5686171a8f76d4cf08a54916
+Author: kaa <113045348+kaahy@users.noreply.github.com>
+Date:   Thu Mar 16 17:24:55 2023 +0200
+
+    lisätty tiedostoja kansio tiedostoineen
+
+ eka.txt          | 3 ++-
+ tiedosto.txt     | 1 -
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 5 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 374355e9e7761707b478b645041768ac9077bd48
+Author: kaa <113045348+kaahy@users.noreply.github.com>
+Date:   Thu Mar 16 17:01:13 2023 +0200
+
+    uudelleennimentä: tiedosto.txt -> eka.txt
+
+ eka.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 2a37c87684ca2b666e3609f29657b21d17e69ae9
+Author: kaa <113045348+kaahy@users.noreply.github.com>
+Date:   Thu Mar 16 16:59:07 2023 +0200
+
+    toinen.txt poistettu
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 653a4355baedc17c5db388d3c9ff4290333b3b5b
+Author: kaa <113045348+kaahy@users.noreply.github.com>
+Date:   Thu Mar 16 16:55:15 2023 +0200
+
+    tiedosto txt muokattu
+
+ tiedosto.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 0ef3f7d1d446d899cf69a3020d79e7146757acb9
+Author: kaa <113045348+kaahy@users.noreply.github.com>
+Date:   Thu Mar 16 16:53:38 2023 +0200
+
+    kopioitu tekstiä tiedostoon tiedosto.txt
+
+ tiedosto.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit fe5c7a866ec4401be2de801623b4bbcb3a9c7794
+Author: kaa <113045348+kaahy@users.noreply.github.com>
+Date:   Thu Mar 16 16:03:21 2023 +0200
+
+    lisätty kansio stuff ja sinne tiedosto
+
+ stuff/jokin_tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 97edb0c863a10e9214a4c2e53660ba5e116284cc
+Author: kaa <113045348+kaahy@users.noreply.github.com>
+Date:   Thu Mar 16 16:01:37 2023 +0200
+
+    muutettu tiedostojen toinen.txt ja kolmas.txt sisältöä
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 14da2f552cdd1ce7f8296856f744cc6d3a19b6c3
+Author: kaa <113045348+kaahy@users.noreply.github.com>
+Date:   Thu Mar 16 15:58:35 2023 +0200
+
+    kolmas.txt lisätty
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 4f64df2c0f9b8226d7e667c35296e504e4890230
+Author: kaa <113045348+kaahy@users.noreply.github.com>
+Date:   Thu Mar 16 15:55:46 2023 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 2c802383361cc17a65f3f8c66d142ebc39a8d7cf
+Author: kaa <113045348+kaahy@users.noreply.github.com>
+Date:   Thu Mar 16 15:53:31 2023 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
