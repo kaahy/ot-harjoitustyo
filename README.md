@@ -9,3 +9,5 @@
 [komentorivi.txt](https://github.com/kaahy/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
 
 ...
+
+. . .
