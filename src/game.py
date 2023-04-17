@@ -4,22 +4,16 @@ import time
 class Game:
     # pelin toiminnallisuuksia
 
-    def __init__(self):
-        self.pairs = 6
+    def __init__(self, pairs):
+        self.pairs = pairs
 
         self.state = {}
         self.state["cardContents"] = list(range(self.pairs)) + list(range(self.pairs))
         self.state["pointedCard"] = 0 # 1 kpl
         self.state["openCards"] = [] # 0-2 kpl
         self.state["foundCards"] = []
-        self.state["message"] = ""
         self.state["win"] = False # True, kun kaikki löydetty
-        self.state["timesOpened"] = 0
         shuffle(self.state["cardContents"]) #testailuun: self.state["cardContents"].sort()
-
-
-    def get_state(self):
-        return self.state
 
     # osoittaa haluttua korttia, kunhan se on olemassa (+ sulkee ensin mahdollisen aiemman parin)
     def point_card(self, card_id):
