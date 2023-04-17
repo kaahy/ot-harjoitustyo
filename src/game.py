@@ -1,5 +1,4 @@
 from random import shuffle
-import time
 
 class Game:
     # pelin toiminnallisuuksia
@@ -29,10 +28,10 @@ class Game:
         if self.state["pointedCard"] not in self.state["openCards"] + self.state["foundCards"]:
             self.state["openCards"].append(self.state["pointedCard"])
 
-        self.update_foundCards_if_needed()
+        self.update_found_cards_if_needed()
 
     # päivittää löytyneiden korttien listaa tarvittaessa
-    def update_foundCards_if_needed(self):
+    def update_found_cards_if_needed(self):
         # tarkistaa onko avattuja kortteja kaksi. jos on, onko ne samat. jos on, tallennus
         if len(self.state["openCards"]) == 2:
             if self.compare_cards():

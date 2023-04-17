@@ -1,7 +1,7 @@
-import pygame
-from game import Game
 import math
 from random import shuffle
+import pygame
+from game import Game
 
 BACKGROUND_COLOR_FRONT = (10, 10, 10)
 BACKGROUND_COLOR_GAME = (10, 10, 10)
@@ -31,9 +31,9 @@ def start_game(screen, pairs):
 
         if event.type == pygame.QUIT:
             exit()
-    
+
         if event.type == pygame.KEYDOWN:
-            
+
             # kortin osoitus
             if event.key == pygame.K_LEFT:
                 game.point_card(game.state["pointedCard"] - 1)
@@ -81,10 +81,8 @@ def draw_front_page(screen):
     screen.blit(text, (40, 240))
 
     pygame.display.flip()
-    
-def draw_game(screen, game):
-    state = game.state
 
+def draw_game(screen, game):
     grid_w = grid_size(game.pairs)["width"]
     grid_h = grid_size(game.pairs)["height"]
 
@@ -92,7 +90,7 @@ def draw_game(screen, game):
     card_h = (HEIGHT-2*PADDING) / grid_h
 
     #PELINÄKYMÄ
-    if state["win"] == False:
+    if not game.state["win"]:
         screen.fill(BACKGROUND_COLOR_GAME)
 
         # piirretään kortit ruudukkoon
@@ -101,27 +99,29 @@ def draw_game(screen, game):
             for x in range(grid_w):
                 i += 1
 
-                if i < game.pairs*2:
-                    fillColor = CARD_COLOR
-                    lineColor = BACKGROUND_COLOR_GAME
-                    if i in state["foundCards"]:
-                        fillColor = CARD_COLORS[state["cardContents"][i]]
-                        lineColor = FOUND_CARDS_LINE_COLOR
-                    if i == state["pointedCard"]:
-                        lineColor = POINTED_CARD_LINE_COLOR
-                    if i in state["openCards"]:
-                        fillColor = CARD_COLORS[state["cardContents"][i]]
-                        lineColor = CARD_COLORS[state["cardContents"][i]]
+                if i >= game.pairs*2:
+                    break
 
-                    X = PADDING + x*card_w
-                    Y = PADDING + y*card_h
+                fill_color = CARD_COLOR
+                line_color = BACKGROUND_COLOR_GAME
+                if i in game.state["foundCards"]:
+                    fill_color = CARD_COLORS[game.state["cardContents"][i]]
+                    line_color = FOUND_CARDS_LINE_COLOR
+                if i == game.state["pointedCard"]:
+                    line_color = POINTED_CARD_LINE_COLOR
+                if i in game.state["openCards"]:
+                    fill_color = CARD_COLORS[game.state["cardContents"][i]]
+                    line_color = CARD_COLORS[game.state["cardContents"][i]]
 
-                    pygame.draw.rect(screen, fillColor, (X, Y, card_w, card_h), 0)
-                    pygame.draw.rect(screen, lineColor, (X, Y, card_w, card_h), int(0.1*card_w))
-                    pygame.draw.rect(screen, BACKGROUND_COLOR_GAME, (X, Y, card_w, card_h), int(0.05*card_w))
+                X = PADDING + x*card_w
+                Y = PADDING + y*card_h
+
+                pygame.draw.rect(screen, fill_color, (X, Y, card_w, card_h), 0)
+                pygame.draw.rect(screen, line_color, (X, Y, card_w, card_h), int(0.1*card_w))
+                pygame.draw.rect(screen, BACKGROUND_COLOR_GAME, (X, Y, card_w, card_h), int(0.05*card_w))
 
     #VOITTONÄKYMÄ
-    elif state["win"] == True:
+    elif game.state["win"]:
         font = pygame.font.Font("freesansbold.ttf", 20)
         text = font.render("Löysit kaikki!", True, (TEXT_COLOR_BRIGHT), BACKGROUND_COLOR_GAME)
         screen.blit(text, (20, 20))
@@ -141,7 +141,7 @@ def main():
         draw_front_page(screen)
 
         event = pygame.event.wait()
-        
+
         if event.type == pygame.QUIT:
             break
 
@@ -155,7 +155,7 @@ def main():
 
             if event.key == pygame.K_3:
                 start_game(screen, 15)
-            
+
             if event.key == pygame.K_ESCAPE:
                 break
 
