@@ -59,7 +59,7 @@ def start_game(screen, pairs):
         game.check_win()
 
         ## tietoa terminaaliin
-        print("game loop", game.state)
+        ## print("game loop", game.state)
 
 def draw_front_page(screen):
     screen.fill((BACKGROUND_COLOR_FRONT))
