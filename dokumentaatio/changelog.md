@@ -7,3 +7,4 @@
 ## Viikko 4
 
 - Lisätty aloitusvalikko, josta käyttäjä valitsee pelin vaikeustason
+- Lisätty testi, että kortteja ei voi avata yli kahta kerrallaan
