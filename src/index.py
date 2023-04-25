@@ -1,12 +1,16 @@
 import math
 from random import shuffle
+import sys
 import pygame
 from game import Game
+print(pygame)
 
 BACKGROUND_COLOR_FRONT = (10, 10, 10)
 BACKGROUND_COLOR_GAME = (10, 10, 10)
 CARD_COLOR = (100, 100, 100)
-CARD_COLORS = [(255, 0, 0), (255, 128, 0), (255, 255, 0), (0, 255, 0), (0, 255, 255), (0, 0, 255), (108, 0, 255),  (255, 0, 255), (255, 0, 128), (128, 0, 0), (128, 128, 0), (0, 128, 0), (0, 128, 128), (0, 0, 128), (128, 0, 128)]
+CARD_COLORS = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (0, 255, 255), (255, 0, 255), (255, 255, 0)]
+CARD_COLORS += [(128, 0, 0), (0, 128, 0), (0, 0, 128), (0, 128, 128), (128, 0, 128), (128, 128, 0)]
+CARD_COLORS += [(255, 128, 0), (128, 64, 0), (255, 255, 255)]
 shuffle(CARD_COLORS)
 FOUND_CARDS_LINE_COLOR  = BACKGROUND_COLOR_GAME
 OPEN_CARDS_LINE_COLOR = (0, 0, 0)
@@ -30,7 +34,7 @@ def start_game(screen, pairs):
         event = pygame.event.wait()
 
         if event.type == pygame.QUIT:
-            exit()
+            sys.exit() #exit()
 
         if event.type == pygame.KEYDOWN:
 
@@ -94,31 +98,29 @@ def draw_game(screen, game):
         screen.fill(BACKGROUND_COLOR_GAME)
 
         # piirretään kortit ruudukkoon
-        i = -1
-        for y in range(grid_h):
-            for x in range(grid_w):
-                i += 1
+        card_id = -1
+        for i in range(grid_h):
+            for j in range(grid_w):
+                card_id += 1
 
-                if i >= game.pairs*2:
+                if card_id >= game.pairs*2:
                     break
 
                 fill_color = CARD_COLOR
                 line_color = BACKGROUND_COLOR_GAME
-                if i in game.state["foundCards"]:
-                    fill_color = CARD_COLORS[game.state["cardContents"][i]]
+                if card_id in game.state["foundCards"]:
+                    fill_color = CARD_COLORS[game.state["cardContents"][card_id]]
                     line_color = FOUND_CARDS_LINE_COLOR
-                if i == game.state["pointedCard"]:
+                if card_id == game.state["pointedCard"]:
                     line_color = POINTED_CARD_LINE_COLOR
-                if i in game.state["openCards"]:
-                    fill_color = CARD_COLORS[game.state["cardContents"][i]]
-                    line_color = CARD_COLORS[game.state["cardContents"][i]]
+                if card_id in game.state["openCards"]:
+                    fill_color = CARD_COLORS[game.state["cardContents"][card_id]]
+                    line_color = CARD_COLORS[game.state["cardContents"][card_id]]
 
-                X = PADDING + x*card_w
-                Y = PADDING + y*card_h
-
-                pygame.draw.rect(screen, fill_color, (X, Y, card_w, card_h), 0)
-                pygame.draw.rect(screen, line_color, (X, Y, card_w, card_h), int(0.1*card_w))
-                pygame.draw.rect(screen, BACKGROUND_COLOR_GAME, (X, Y, card_w, card_h), int(0.05*card_w))
+                rect = (PADDING+j*card_w, PADDING+i*card_h, card_w, card_h)
+                pygame.draw.rect(screen, fill_color, rect, 0)
+                pygame.draw.rect(screen, line_color, rect, int(0.1*card_w))
+                pygame.draw.rect(screen, BACKGROUND_COLOR_GAME, rect, int(0.05*card_w))
 
     #VOITTONÄKYMÄ
     elif game.state["win"]:
