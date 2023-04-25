@@ -39,7 +39,7 @@ def start_game(pairs, ui_view):
         game.check_win()
 
         ## tietoa terminaaliin
-        print("game loop", game.state)
+        ## print("game loop", game.state)
 
 def main():
     ui_view = Ui()

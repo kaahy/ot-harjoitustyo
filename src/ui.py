@@ -50,6 +50,10 @@ class Ui:
         #PELINÄKYMÄ
         if not game.state["win"]:
             self.screen.fill(BACKGROUND_COLOR_GAME)
+            #tekstit
+            font = pygame.font.Font("freesansbold.ttf", 20)
+            text = font.render(f"Käännöt: {game.state['turns']}", True, (TEXT_COLOR_BRIGHT), BACKGROUND_COLOR_GAME)
+            self.screen.blit(text, (20, 20))
             # piirretään kortit ruudukkoon
             card_id = -1
             for i in range(grid_h):
@@ -77,6 +81,10 @@ class Ui:
             font = pygame.font.Font("freesansbold.ttf", 20)
             text = font.render("Löysit kaikki!", True, (TEXT_COLOR_BRIGHT), BACKGROUND_COLOR_GAME)
             self.screen.blit(text, (20, 20))
+            text = font.render(f"Käännöt: {game.state['turns']}", True, (TEXT_COLOR_BRIGHT), BACKGROUND_COLOR_GAME)
+            self.screen.blit(text, (20, 50))
+            text = font.render(f"Aika: {round(game.state['duration'], 1)} s", True, (TEXT_COLOR_BRIGHT), BACKGROUND_COLOR_GAME)
+            self.screen.blit(text, (20, 80))
             text = font.render("[ESC] Alkuun", True, (TEXT_COLOR_DIM), BACKGROUND_COLOR_GAME)
             self.screen.blit(text, (20, HEIGHT-40))
 
