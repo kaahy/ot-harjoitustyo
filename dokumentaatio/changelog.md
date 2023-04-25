@@ -8,3 +8,8 @@
 
 - Lisätty aloitusvalikko, josta käyttäjä valitsee pelin vaikeustason
 - Lisätty testi, että kortteja ei voi avata yli kahta kerrallaan
+
+## Viikko 5
+
+- Pelistä näkee nyt kääntöjen määrän ja lopuksi kääntöjen määrän ja pelin keston
+- Parhaita tuloksia voi katsoa
