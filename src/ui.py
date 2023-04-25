@@ -26,6 +26,21 @@ class Ui:
         pygame.init()
         pygame.display.set_caption("Muistipeli")
 
+    def draw_results_view(self, results):
+        self.screen.fill((0, 128, 0))
+
+        font = pygame.font.Font("freesansbold.ttf", 20)
+
+        y = 40
+
+        for result in results:
+            text = font.render(f"{result[0]} kääntöä ({round(result[1], 2)} s)", True, TEXT_COLOR_BRIGHT)
+            self.screen.blit(text, (20, y))
+
+            y += 40
+
+        pygame.display.flip()
+
     def draw_front_view(self):
         self.screen.fill((BACKGROUND_COLOR_FRONT))
         font = pygame.font.Font("freesansbold.ttf", 20)
@@ -37,8 +52,18 @@ class Ui:
         self.screen.blit(text, (60, 140))
         text = font.render("[3] Vaikea", True, TEXT_COLOR_BRIGHT)
         self.screen.blit(text, (60, 180))
+
+        text = font.render("Top 5 tulokset", True, TEXT_COLOR_DIM)
+        self.screen.blit(text, (40, 220))
+        text = font.render("[4] Helppo", True, TEXT_COLOR_BRIGHT)
+        self.screen.blit(text, (60, 260))
+        text = font.render("[5] Keskitaso", True, TEXT_COLOR_BRIGHT)
+        self.screen.blit(text, (60, 300))
+        text = font.render("[6] Vaikea", True, TEXT_COLOR_BRIGHT)
+        self.screen.blit(text, (60, 340))
+
         text = font.render("[ESC] Sulje", True, TEXT_COLOR_DIM)
-        self.screen.blit(text, (40, 240))
+        self.screen.blit(text, (40, 380))
         pygame.display.flip()
 
     def draw_game_view(self, game):

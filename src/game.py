@@ -12,7 +12,7 @@ class Game:
         self.state["openCards"] = [] # 0-2 kpl
         self.state["foundCards"] = []
         self.state["win"] = False # True, kun kaikki löydetty
-        shuffle(self.state["cardContents"]) #testailuun: self.state["cardContents"].sort()
+        shuffle(self.state["cardContents"]) #testailuun: self.state["cardContents"].sort() ########
         self.state["turns"] = 0
         self.state["start_time"] = time()
         self.state["duration"] = 0
