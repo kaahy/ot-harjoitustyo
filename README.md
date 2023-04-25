@@ -14,8 +14,7 @@ Ohjelmistotekniikka-kurssin harjoitustyö.
 ## Asennus
 
 1. Asenna riippuvuudet: `poetry install`
-2. Suorita vaadittavat alustustoimenpiteet: `poetry run invoke build`
-3. Käynnistä sovellus: `poetry run invoke start`
+2. Käynnistä sovellus: `poetry run invoke start`
 
 ## Komentorivitoiminnot
 
