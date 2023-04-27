@@ -9,5 +9,6 @@ ti 4.4.2023 | 3 | pelin ensimmäisen version viimeistelyä, testaamisen aloitus 
 ma 17.4.2023 | 6 | peliin valikon ja vaikeustasojen koodaus sekä pieniä muutoksia ulkoasuun, Pylint
 ti 18.4.2023 | 1 | testin lisäys sekä yritys refaktoroida koodia, mutta siitä ei tullut mitään
 ti 25.4.2023 | 5 | koodin uudelleen jäsentelyä, tulosten tallentamisen ja näyttämisen koodaus
+to 27.4.2023 | 2 | Pylint-virheiden korjausta, koodin uudelleen jäsentämistä, pieniä muutoksia ulkoasuun
 
-Yhteensä: 29
+Yhteensä: 31
