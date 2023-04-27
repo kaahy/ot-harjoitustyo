@@ -26,18 +26,27 @@ class Ui:
         pygame.init()
         pygame.display.set_caption("Muistipeli")
 
-    def draw_results_view(self, results):
-        self.screen.fill((0, 128, 0))
+    def draw_results_view(self, results, pairs):
+        self.screen.fill((0, 64, 0))
 
         font = pygame.font.Font("freesansbold.ttf", 20)
 
         y = 40
+        text = font.render(f"Parhaat tulokset - {pairs} paria", True, TEXT_COLOR_BRIGHT)
+        self.screen.blit(text, (20, y))
+        y += 60
 
-        for result in results:
-            text = font.render(f"{result[0]} kääntöä ({round(result[1], 2)} s)", True, TEXT_COLOR_BRIGHT)
+        if len(results) == 0:
+            text = font.render(f"Ei tuloksia", True, TEXT_COLOR_BRIGHT)
             self.screen.blit(text, (20, y))
+        else:
+            for result in results:
+                text = font.render(f"{result[0]} kääntöä ({round(result[1], 2)} s)", True, TEXT_COLOR_BRIGHT)
+                self.screen.blit(text, (20, y))
+                y += 40
 
-            y += 40
+        text = font.render(f"[ESC] Alkuun", True, TEXT_COLOR_DIM)
+        self.screen.blit(text, (20, HEIGHT-40))
 
         pygame.display.flip()
 
@@ -53,17 +62,17 @@ class Ui:
         text = font.render("[3] Vaikea", True, TEXT_COLOR_BRIGHT)
         self.screen.blit(text, (60, 180))
 
-        text = font.render("Top 5 tulokset", True, TEXT_COLOR_DIM)
-        self.screen.blit(text, (40, 220))
+        text = font.render("Parhaat tulokset", True, TEXT_COLOR_DIM)
+        self.screen.blit(text, (40, 240))
         text = font.render("[4] Helppo", True, TEXT_COLOR_BRIGHT)
-        self.screen.blit(text, (60, 260))
+        self.screen.blit(text, (60, 280))
         text = font.render("[5] Keskitaso", True, TEXT_COLOR_BRIGHT)
-        self.screen.blit(text, (60, 300))
+        self.screen.blit(text, (60, 320))
         text = font.render("[6] Vaikea", True, TEXT_COLOR_BRIGHT)
-        self.screen.blit(text, (60, 340))
+        self.screen.blit(text, (60, 360))
 
         text = font.render("[ESC] Sulje", True, TEXT_COLOR_DIM)
-        self.screen.blit(text, (40, 380))
+        self.screen.blit(text, (40, 420))
         pygame.display.flip()
 
     def draw_game_view(self, game):

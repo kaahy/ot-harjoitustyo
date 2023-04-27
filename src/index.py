@@ -11,7 +11,7 @@ def print_top_results(repository, pairs, ui_view):
     while True:
         event = pygame.event.wait()
 
-        ui_view.draw_results_view(top_results)
+        ui_view.draw_results_view(top_results, pairs)
 
         if event.type == pygame.QUIT:
             sys.exit()
