@@ -8,7 +8,7 @@ Muistipeli. Pelissä on kortteja nurinpäin käännettynä. Jokaisella kortilla 
 
 - [x] Pelaaja voi valita muistipelin vaikeusasteen eli korttien määrän
 - [ ] Pelistä saa täydet pisteet, jos ei tule unohduksia (eli löytää avaamansa kortin parin aina, jos on nähnyt parin aiemmin)
-- [ ] Pelaaja voi katsoa tilastoja, joista näkyy eri vaikeusasteiden parhaat pisteet ja pelien kestot
+- [x] Pelaaja voi katsoa tilastoja, joista näkyy eri vaikeusasteiden parhaat pisteet ja pelien kestot
 - [ ] Pelaaja voi ennätyksen tehdessään päättää, millä nimellä se tallennetaan
 
 ## Jatkokehitysideoita
