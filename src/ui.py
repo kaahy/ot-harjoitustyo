@@ -26,13 +26,13 @@ class Ui:
         pygame.init()
         pygame.display.set_caption("Muistipeli")
 
-    def draw_results_view(self, results, pairs):
+    def draw_results_view(self, results, title):
         self.screen.fill((0, 64, 0))
 
         font = pygame.font.Font("freesansbold.ttf", 20)
 
         y = 40
-        text = font.render(f"Parhaat tulokset - {pairs} paria", True, TEXT_COLOR_BRIGHT)
+        text = font.render(f"{title}", True, TEXT_COLOR_BRIGHT)
         self.screen.blit(text, (20, y))
         y += 60
 

@@ -8,10 +8,19 @@ from repository import Repository
 def print_top_results(repository, pairs, ui_view):
     top_results = repository.get_top_results(pairs, 3)
 
+    title = "Parhaat tulokset"
+
+    if pairs == 6:
+        title += " - Helppo"
+    elif pairs == 10:
+        title += " - Keskitaso"
+    elif pairs == 15:
+        title += " - Vaikea"
+
     while True:
         event = pygame.event.wait()
 
-        ui_view.draw_results_view(top_results, pairs)
+        ui_view.draw_results_view(top_results, title)
 
         if event.type == pygame.QUIT:
             sys.exit()
