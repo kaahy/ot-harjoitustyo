@@ -31,21 +31,22 @@ class Ui:
 
         font = pygame.font.Font("freesansbold.ttf", 20)
 
-        y = 40
+        text_y = 40
         text = font.render(f"{title}", True, TEXT_COLOR_BRIGHT)
-        self.screen.blit(text, (20, y))
-        y += 60
+        self.screen.blit(text, (20, text_y))
+        text_y += 60
 
         if len(results) == 0:
-            text = font.render(f"Ei tuloksia", True, TEXT_COLOR_BRIGHT)
-            self.screen.blit(text, (20, y))
+            text = font.render("Ei tuloksia", True, TEXT_COLOR_BRIGHT)
+            self.screen.blit(text, (20, text_y))
         else:
             for result in results:
-                text = font.render(f"{result[0]} kääntöä ({round(result[1], 2)} s)", True, TEXT_COLOR_BRIGHT)
-                self.screen.blit(text, (20, y))
-                y += 40
+                time = round(result[1], 2)
+                text = font.render(f"{result[0]} kääntöä ({time} s)", True, TEXT_COLOR_BRIGHT)
+                self.screen.blit(text, (20, text_y))
+                text_y += 40
 
-        text = font.render(f"[ESC] Alkuun", True, TEXT_COLOR_DIM)
+        text = font.render("[ESC] Alkuun", True, TEXT_COLOR_DIM)
         self.screen.blit(text, (20, HEIGHT-40))
 
         pygame.display.flip()
@@ -61,7 +62,6 @@ class Ui:
         self.screen.blit(text, (60, 140))
         text = font.render("[3] Vaikea", True, TEXT_COLOR_BRIGHT)
         self.screen.blit(text, (60, 180))
-
         text = font.render("Parhaat tulokset", True, TEXT_COLOR_DIM)
         self.screen.blit(text, (40, 240))
         text = font.render("[4] Helppo", True, TEXT_COLOR_BRIGHT)
@@ -70,7 +70,6 @@ class Ui:
         self.screen.blit(text, (60, 320))
         text = font.render("[6] Vaikea", True, TEXT_COLOR_BRIGHT)
         self.screen.blit(text, (60, 360))
-
         text = font.render("[ESC] Sulje", True, TEXT_COLOR_DIM)
         self.screen.blit(text, (40, 420))
         pygame.display.flip()

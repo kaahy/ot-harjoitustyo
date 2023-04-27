@@ -3,15 +3,14 @@ class Repository:
         self.file = "results.txt"
 
     def save_results(self, time, pairs, turns, duration):
-        f = open(self.file, "a")
-        f.write(f"\n{time} {pairs} {turns} {duration} {time}")
-        f.close()
+        with open(self.file, "a") as file:
+            file.write(f"\n{time} {pairs} {turns} {duration} {time}")
 
     def get_top_results(self, pairs, amount=-1):
         results = []
 
-        with open(self.file) as f:
-            lines = f.read().splitlines()
+        with open(self.file) as file:
+            lines = file.read().splitlines()
 
         for line_ in lines:
             line = line_.split()

@@ -28,7 +28,7 @@ def print_top_results(repository, pairs, ui_view):
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 return
-            
+
     return
 
 def start_game(repository, pairs, ui_view):
