@@ -3,34 +3,15 @@ from time import time
 import pygame
 from game import Game
 from ui import Ui
+from repository import Repository
 
-def save_results(time, pairs, turns, duration):
-    f = open("results.txt", "a")
-    f.write(f"\n{time} {pairs} {turns} {duration} {time}")
-    f.close()
-
-def print_results(pairs, ui_view):
-    tulokset = []
-
-    with open("results.txt") as f:
-        lines = f.read().splitlines()
-
-    for line_ in lines:
-        line = line_.split()
-        if len(line) < 2:
-            continue
-
-        if int(line[1]) == pairs:
-            turns = int(line[2])
-            duration = float(line[3])
-            tulokset.append((turns, duration))
-
-    tulokset.sort()
+def print_top_results(repository, pairs, ui_view):
+    top_results = repository.get_top_results(pairs, 3)
 
     while True:
         event = pygame.event.wait()
 
-        ui_view.draw_results_view(tulokset[0:5])
+        ui_view.draw_results_view(top_results)
 
         if event.type == pygame.QUIT:
             sys.exit()
@@ -41,7 +22,7 @@ def print_results(pairs, ui_view):
             
     return
 
-def start_game(pairs, ui_view):
+def start_game(repository, pairs, ui_view):
     game = Game(pairs)
 
     # pelisilmukka
@@ -68,9 +49,9 @@ def start_game(pairs, ui_view):
                 game.open_card()
 
             if event.key == pygame.K_ESCAPE:
-                #### tallenna tulokset
+                # tallenna tulokset
                 if game.state["win"]:
-                    save_results(time(), game.pairs, game.state["turns"], game.state["duration"])
+                    repository.save_results(time(), game.pairs, game.state["turns"], game.state["duration"])
 
                 return False
 
@@ -84,6 +65,8 @@ def start_game(pairs, ui_view):
         ## print("game loop", game.state)
 
 def main():
+    repository = Repository()
+
     ui_view = Ui()
     ui_view.start()
 
@@ -99,22 +82,22 @@ def main():
         if event.type == pygame.KEYDOWN:
 
             if event.key == pygame.K_1:
-                start_game(6, ui_view)
+                start_game(repository, 6, ui_view)
 
             if event.key == pygame.K_2:
-                start_game(10, ui_view)
+                start_game(repository, 10, ui_view)
 
             if event.key == pygame.K_3:
-                start_game(15, ui_view)
+                start_game(repository, 15, ui_view)
 
             if event.key == pygame.K_4:
-                print_results(6, ui_view)
+                print_top_results(repository, 6, ui_view)
 
             if event.key == pygame.K_5:
-                print_results(10, ui_view)
+                print_top_results(repository, 10, ui_view)
 
             if event.key == pygame.K_6:
-                print_results(15, ui_view)
+                print_top_results(repository, 15, ui_view)
 
             if event.key == pygame.K_ESCAPE:
                 break
