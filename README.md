@@ -8,6 +8,7 @@ Uusin release: [viikko5](https://github.com/kaahy/ot-harjoitustyo/releases/tag/v
 
 ## Dokumentaatio
 
+- [Käyttöohje](https://github.com/kaahy/ot-harjoitustyo/blob/main/dokumentaatio/kayttoohje.md)
 - [Vaatimusmäärittely](https://github.com/kaahy/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
 - [Arkkitehtuuri](https://github.com/kaahy/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)
 - [Tyoaikakirjanpito](https://github.com/kaahy/ot-harjoitustyo/blob/main/dokumentaatio/tyoaikakirjanpito.md)
