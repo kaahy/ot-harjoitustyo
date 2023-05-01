@@ -2,9 +2,19 @@ from random import shuffle
 from time import time
 
 class Game:
-    # pelin toiminnallisuuksia
+    """Luokka, joka säilyttää ja muokkaa pelin tietoja.
+
+    Attributes:
+        pairs (int): Pelin vaikeustaso parien määrällä ilmaistuna.
+    """
 
     def __init__(self, pairs):
+        """Luokan konstruktori, joka alustaa pelin tilannetiedot.
+
+        Args:
+            pairs (int): Pelin vaikeustaso parien määrällä ilmaistuna.
+        """
+
         self.pairs = pairs
         self.state = {}
         self.state["cardContents"] = list(range(self.pairs)) + list(range(self.pairs))
@@ -17,27 +27,34 @@ class Game:
         self.state["start_time"] = time()
         self.state["duration"] = 0
 
-    # osoittaa haluttua korttia, kunhan se on olemassa (+ sulkee ensin mahdollisen aiemman parin)
     def point_card(self, card_id):
+        """Merkitsee pelaajan osoittaman kortin.
+
+        Lisäksi, jos aiemmin oli auki kaksi korttia, sulkee ne.
+
+        Args:
+            card_id (int): Kortin tunnusluku.
+        """
+
         if len(self.state["openCards"]) >= 2:
             self.close_cards()
         if card_id in range(self.pairs*2):
             self.state["pointedCard"] = card_id
 
-    # avaa osoitettavana olevan kortin, kunhan se on vapaana (eli ei joko avattu tai löydetty)
-    # päivittää tarvittaessa listaa löydetyistä korteista
-    # kasvattaa kääntöjen määrää tarvittaessa
-    # päivittää keston
     def open_card(self):
+        """Merkitsee pelaajan osoittaman kortin avatuksi.
+
+        Lisäksi päivittää pelin keston sekä tarvittaessa löydetyt kortit ja kääntöjen määrän.
+        """
+
         if self.state["pointedCard"] not in self.state["openCards"] + self.state["foundCards"]:
             self.state["openCards"].append(self.state["pointedCard"])
             self.state["duration"] = time() - self.state["start_time"]
             self.update_turns_if_needed()
         self.update_found_cards_if_needed()
 
-    # päivittää löytyneiden korttien listaa tarvittaessa
     def update_found_cards_if_needed(self):
-        # tarkistaa onko avattuja kortteja kaksi. jos on, onko ne samat. jos on, tallennus
+        # jos on auki kaksi samaa korttia, lisätään ne löydettyihin kortteihin
         if len(self.state["openCards"]) == 2:
             if self.compare_cards():
                 self.state["foundCards"] += self.state["openCards"]
@@ -46,12 +63,16 @@ class Game:
         if len(self.state["openCards"]) == 1:
             self.state["turns"] += 1
 
-    # tyhjentää avatut kortit (ei tarkoita löydettyjä)
     def close_cards(self):
         self.state["openCards"] = []
 
-    # tarkistaa onko löytynyt pari (ts. avattu 2 samaa korttia)
     def compare_cards(self):
+        """Tarkistaa, onko löytynyt pari eli onko auki kaksi samaa korttia.
+
+        Returns:
+            True, jos pari on löytynyt, muutoin False.
+        """
+
         if len(self.state["openCards"]) == 2:
             card1_id = self.state["openCards"][0]
             card2_id = self.state["openCards"][1]
@@ -59,8 +80,13 @@ class Game:
                 return True
         return False
 
-    # tarkistaa onko kaikki parit löydetty + päivittää samalla win-tiedon
     def check_win(self):
+        """Tarkistaa, onko peli voitettu eli kaikki parit löydetty.
+
+        Returns:
+            True, jos peli on voitettu, muutoin False.
+        """
+
         if len(self.state["foundCards"]) == len(self.state["cardContents"]):
             self.state["win"] = True
             return True

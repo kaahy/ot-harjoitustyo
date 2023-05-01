@@ -19,6 +19,9 @@ CARD_COLORS += [(255, 128, 0), (128, 64, 0), (255, 255, 255)]
 shuffle(CARD_COLORS)
 
 class Ui:
+    """Luokka, joka vastaa Pygame-käyttöliittymän piirtämisestä.
+    """
+
     def __init__(self):
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
@@ -27,6 +30,13 @@ class Ui:
         pygame.display.set_caption("Muistipeli")
 
     def draw_results_view(self, results, title):
+        """Piirtää parhaiden tulosten katselunäkymän.
+
+        Args:
+            results (list): Listat, joissa on ensin avausten määrä ja sitten sekunteina pelin kesto.
+            title (string): Näkymään tuleva otsikko.
+        """
+
         self.screen.fill((0, 64, 0))
 
         font = pygame.font.Font("freesansbold.ttf", 20)
@@ -52,6 +62,9 @@ class Ui:
         pygame.display.flip()
 
     def draw_front_view(self):
+        """Piirtää aloitusnäkymän, jossa näytetään vaihtoehdot mitä voi tehdä.
+        """
+
         self.screen.fill((BACKGROUND_COLOR_FRONT))
         font = pygame.font.Font("freesansbold.ttf", 20)
         text = font.render("Pelaa", True, TEXT_COLOR_DIM)
@@ -75,6 +88,12 @@ class Ui:
         pygame.display.flip()
 
     def draw_game_view(self, game):
+        """Piirtää pelin sen hetken tilanteen mukaisesti.
+
+        Args:
+            game (object): Pelin tietoja säilyttävän luokan olio.
+        """
+
         grid_w = self.grid_size(game.pairs)["width"]
         grid_h = self.grid_size(game.pairs)["height"]
         card_w = (WIDTH-2*PADDING) / grid_w
@@ -125,6 +144,14 @@ class Ui:
         pygame.display.flip()
 
     def grid_size(self, pairs):
+        """Määrittää ruudukolle koon korttien määrän perusteella.
+
+        Args:
+            pairs (int): Parien määrä.
+
+        Returns:
+            Sanakirja, jonka avaimet ovat width ja height.
+        """
         grid_w = math.ceil(math.sqrt(pairs*2))
         grid_h = math.ceil((pairs*2) / grid_w)
         return {"width": grid_w, "height": grid_h}

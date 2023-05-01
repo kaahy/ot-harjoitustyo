@@ -1,12 +1,34 @@
 class Repository:
+    """Luokka, joka vastaa pysyvän tiedon tallentamisesta ja palauttamisesta.
+    """
+
     def __init__(self):
         self.file = "results.txt"
 
     def save_results(self, time, pairs, turns, duration):
+        """Tallentaa tulokset tiedostoon.
+
+        Args:
+            time (float): Aika nyt sekunteina.
+            pairs (int): Vaikeustaso parien määränä.
+            turns (int): Korttien avausten määrä.
+            duration (float): Pelin kesto sekunteina.
+        """
+
         with open(self.file, "a") as file:
             file.write(f"\n{time} {pairs} {turns} {duration} {time}")
 
     def get_top_results(self, pairs, amount=-1):
+        """Palauttaa tietyn vaikeustason parhaat tulokset parhausjärjestyksessä.
+
+        Args:
+            pairs (int): Pelin vaikeustaso parien määrällä ilmaistuna.
+            amount (int, optional): Tulosten määrä.
+
+        Returns:
+            list: Arvot ovat listoja, joissa on korttien avausmäärä ja pelin kesto sekunteina.
+        """
+
         results = []
 
         with open(self.file) as file:
