@@ -1,3 +1,5 @@
+import os.path
+
 class Repository:
     """Luokka, joka vastaa pysyvän tiedon tallentamisesta ja palauttamisesta.
     """
@@ -15,7 +17,7 @@ class Repository:
             duration (float): Pelin kesto sekunteina.
         """
 
-        with open(self.file, "a") as file:
+        with open(self.file, "a", encoding="utf-8") as file:
             file.write(f"\n{time} {pairs} {turns} {duration} {time}")
 
     def get_top_results(self, pairs, amount=-1):
@@ -31,19 +33,21 @@ class Repository:
 
         results = []
 
-        with open(self.file) as file:
-            lines = file.read().splitlines()
+        if os.path.isfile(self.file):
 
-        for line_ in lines:
-            line = line_.split()
-            if len(line) < 2:
-                continue
+            with open(self.file, encoding="utf-8") as file:
+                lines = file.read().splitlines()
 
-            if int(line[1]) == pairs:
-                turns = int(line[2])
-                duration = float(line[3])
-                results.append((turns, duration))
+            for line_ in lines:
+                line = line_.split()
+                if len(line) < 2:
+                    continue
 
-        results.sort()
+                if int(line[1]) == pairs:
+                    turns = int(line[2])
+                    duration = float(line[3])
+                    results.append((turns, duration))
+
+            results.sort()
 
         return results[:amount]
