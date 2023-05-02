@@ -11,5 +11,6 @@ ti 18.4.2023 | 1 | testin lisäys sekä yritys refaktoroida koodia, mutta siitä
 ti 25.4.2023 | 5 | koodin uudelleen jäsentelyä, tulosten tallentamisen ja näyttämisen koodaus
 to 27.4.2023 | 2 | Pylint-virheiden korjausta, koodin uudelleen jäsentämistä, pieniä muutoksia ulkoasuun
 ma 1.5.2023 | 4 | käyttöohje ja arkkitehtuurikuvaus, docstring, bugin ja parin Pylint-virheen korjaus
+ti 2.5.2023 | 3 | hakemistomuutoksia, uusia testejä
 
-Yhteensä: 35
+Yhteensä: 38

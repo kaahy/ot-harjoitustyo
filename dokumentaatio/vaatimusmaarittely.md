@@ -18,4 +18,4 @@ Muistipeli. Pelissä on kortteja nurinpäin käännettynä. Jokaisella kortilla 
 - Aikarajoitus
 - Tasoilla eteneminen
 - Mahdollisuus etsiä myös kolme samanlaista
-- Kortin kuvapuolelle vaihtelua (perusversiossa pelkkiä numeroita)
+- Kortin kuvapuolelle vaihtelua (perusversiossa pelkkiä ~~numeroita~~ värejä)

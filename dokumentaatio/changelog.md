@@ -13,3 +13,8 @@
 
 - Pelistä näkee nyt kääntöjen määrän ja lopuksi kääntöjen määrän ja pelin keston
 - Parhaita tuloksia voi katsoa
+
+## Viikko 6
+
+- Luokat/tiedostot siirretty omiin hakemistoihinsa.
+- Lisätty Game-luokkaa testaavia testejä: käännöt lasketaan oikein, tunnistetaan oikein onko pari löydetty, pelaaja voi osoittaa vain olemassa olevaa korttia, voitontarkistuksen toimivuus
