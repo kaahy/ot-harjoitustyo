@@ -1,9 +1,9 @@
 import sys
 from time import time
 import pygame
-from game import Game
-from ui import Ui
-from repository import Repository
+from game.game import Game
+from ui.ui import Ui
+from repository.repository import Repository
 
 def print_top_results(repository, pairs, ui_view):
     top_results = repository.get_top_results(pairs, 3)
