@@ -4,7 +4,11 @@ Muistipelissä tavoitteena on löytää parit nurin käännetyistä korteista ka
 
 Ohjelmistotekniikka-kurssin harjoitustyö.
 
-Uusimmat releaset: [viikko5](https://github.com/kaahy/ot-harjoitustyo/releases/tag/viikko5), [viikko6](https://github.com/kaahy/ot-harjoitustyo/releases/tag/viikko6)
+## Uusimmat releaset
+
+- [Viikko 5](https://github.com/kaahy/ot-harjoitustyo/releases/tag/viikko5)
+- [Viikko 6](https://github.com/kaahy/ot-harjoitustyo/releases/tag/viikko6)
+- [Loppupalautus](https://github.com/kaahy/ot-harjoitustyo/releases/tag/loppupalautus)
 
 ## Dokumentaatio
 
